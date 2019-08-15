@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cycle jogging calculator</title>
+</head>
+
+<body>
+
+<script>
+function bmiCalc(height, weight) {
+
+"use strict";
+let a = document.getElementById(height).value;
+let b = document.getElementById(weight).value;
+
+let c = b*10000/(a*a);
+
+
+switch(true) {
+  case (c < 18.5):  
+      document.getElementById("bmi_result").innerHTML = "BMI: " + c.toFixed(2) + " (underweight)";
+    break;
+  case (18.5 < c && c < 24.9):  
+      document.getElementById("bmi_result").innerHTML = "BMI: " + c.toFixed(2) + " (normal)";
+    break;
+  case (25.5 < c && c < 29.9):  
+      document.getElementById("bmi_result").innerHTML = "BMI: " + c.toFixed(2) + " (overweight)";
+    break;
+  case (30 < c && c< 39.9):  
+      document.getElementById("bmi_result").innerHTML = "BMI: " + c.toFixed(2) + " (obese)";
+    break;
+  case (c > 39.9):  
+      document.getElementById("bmi_result").innerHTML = "BMI: " + c.toFixed(2) + " (morbidly obese)";
+    break;
+  default:
+      document.getElementById("bmi_result").innerHTML = "Error!";
+    break;
+             }
+}
+</script>
+
+
+
+<h1 style="text-align: center; padding-top: 150px;">
+Cycle jogging calculator
+</h1>
+
+
+<div style="width: 250px; margin-left:auto; margin-right:auto;">
+  <fieldset>
+    <legend>Your measurements:</legend>
+  Height:  <input type="text" id="height"> cm<br><br>
+  Weight:  <input type="text" id="weight"> kg<br><br>
+    <button type="button" onclick="bmiCalc('height', 'weight')">Calculate!</button>
+  </fieldset>
+</div>
+
+<p id="bmi_result" style="text-align: center;">Enter your data above</p>
+
+
+</body>
+</html>
